@@ -57,12 +57,13 @@ pipeline {
                   pip install --upgrade pip &&
                   pip install -r requirements.txt &&
                   chmod +x dev_flask.sh &&
-                  ./dev_flask.sh restart
+                  /dev_flask.sh restart
                 "
                 '''
             }
         }
     }
 }
+
 
 
