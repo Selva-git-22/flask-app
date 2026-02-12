@@ -49,21 +49,22 @@ pipeline {
                 scp -r app.py requirements.txt dev_flask.sh ${FLASK_EC2}:${APP_DIR}
                 
                 # Install deps and restart Flask cleanly
-                ssh ${FLASK_EC2} "
-                  cd ${APP_DIR} &&
-                  rm -rf venv &&
-                  python3 -m venv venv &&
-                  . venv/bin/activate &&
-                  pip install --upgrade pip &&
-                  pip install -r requirements.txt &&
-                  chmod +x dev_flask.sh &&
-                  /dev_flask.sh restart
+                ssh ubuntu@54.146.255.170 "
+                cd /home/ubuntu/flask-app &&
+                rm -rf venv &&
+                python3 -m venv venv &&
+                . venv/bin/activate &&
+                pip install --upgrade pip &&
+                pip install -r requirements.txt &&
+                chmod +x dev_flask.sh &&
+                ./dev_flask.sh restart
                 "
                 '''
             }
         }
     }
 }
+
 
 
 
