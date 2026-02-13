@@ -49,7 +49,7 @@ pipeline {
                 scp -r app.py requirements.txt dev_flask.sh ubuntu@3.95.205.201:/home/ubuntu/flask-app
                 
                 # Install deps and restart Flask cleanly
-                ssh ubuntu@54.146.255.170 "
+                ssh ubuntu@3.95.205.201"
                 cd /home/ubuntu/flask-app &&
                 rm -rf venv &&
                 python3 -m venv venv &&
@@ -64,6 +64,7 @@ pipeline {
         }
     }
 }
+
 
 
 
