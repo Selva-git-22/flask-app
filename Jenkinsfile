@@ -5,7 +5,7 @@ pipeline {
         APP_DIR   = "/home/ubuntu/flask-app"
         VENV_DIR = "venv"
         FLASK_PORT = "5000"
-        FLASK_EC2 = "ubuntu@54.146.255.170"
+        FLASK_EC2 = "ubuntu@3.95.205.201"
         // FLASK_EC2 = "ubuntu@NEW IP"
     }
 
@@ -46,7 +46,7 @@ pipeline {
 
                 # Copy only required files (NO venv)
                 #scp app.py requirements.txt dev_flask.sh -r ${FLASK_EC2}:${APP_DIR}
-                scp -r app.py requirements.txt dev_flask.sh ${FLASK_EC2}:${APP_DIR}
+                scp -r app.py requirements.txt dev_flask.sh ubuntu@3.95.205.201:/home/ubuntu/flask-app
                 
                 # Install deps and restart Flask cleanly
                 ssh ubuntu@54.146.255.170 "
@@ -64,6 +64,7 @@ pipeline {
         }
     }
 }
+
 
 
 
